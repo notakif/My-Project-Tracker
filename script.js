@@ -28,6 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (i === 3) { // Due Date column
                 const today = new Date().toISOString().split('T')[0];
                 td.innerHTML = `<input type="date" class="date-input" value="${today}">`;
+            } else if (i === 4) { // Status column
+                td.innerHTML = `
+                    <select class="status-select">
+                        <option value="in-progress">In Progress</option>
+                        <option value="pending" selected>Pending</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                `;
             } else if (i === 5) { // Priority column
                 td.innerHTML = `
                     <select class="priority-select">
@@ -45,9 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         break;
                     case 2:
                         td.textContent = 'Enter description';
-                        break;
-                    case 4:
-                        td.textContent = 'Pending';
                         break;
                 }
             }
@@ -102,6 +107,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     const td = document.createElement('td');
                     if (index === 2) { // Due Date column
                         td.innerHTML = `<input type="date" class="date-input" value="${cellContent}">`;
+                    } else if (index === 3) { // Status column
+                        td.innerHTML = `
+                            <select class="status-select">
+                                <option value="in-progress" ${cellContent === 'in-progress' ? 'selected' : ''}>In Progress</option>
+                                <option value="pending" ${cellContent === 'pending' ? 'selected' : ''}>Pending</option>
+                                <option value="completed" ${cellContent === 'completed' ? 'selected' : ''}>Completed</option>
+                            </select>
+                        `;
                     } else if (index === 4) { // Priority column
                         td.innerHTML = `
                             <select class="priority-select">
