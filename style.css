@@ -7,22 +7,40 @@
 
 body {
     font-family: 'Sora', sans-serif;
-    background-color: #C7ECC6;  /* Light green background */
+    background-image: url('family-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     margin: 0;
     padding: 0;
     font-size: 14px;
     font-weight: 400;
     color: #173B30;  /* Dark green text */
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(199, 236, 198, 0.85);  /* Light green with opacity */
+    z-index: -1;
 }
 
 .container {
     max-width: 1200px;
     margin: 40px auto;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.95);  /* Slightly transparent white */
     border-radius: 12px;
     padding: 30px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     position: relative;
+    backdrop-filter: blur(5px);
 }
 
 h2 {
