@@ -1,0 +1,255 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sora', sans-serif;
+    background-color: #C7ECC6;  /* Light green background */
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: #173B30;  /* Dark green text */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+h2 {
+    text-align: center;
+    background-color: #173B30;  /* Dark green */
+    color: #C7ECC6;  /* Light green */
+    font-size: 24px;
+    font-weight: 600;  /* Sora semibold */
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+    background-color: #ffffff;
+}
+
+th, td {
+    border: 1px solid #173B30;
+    padding: 15px;
+    text-align: left;
+    min-width: 150px;
+}
+
+/* Set specific widths for each column */
+th:nth-child(1), td:nth-child(1) { width: 9%; } /* Action */
+th:nth-child(2), td:nth-child(2) { width: 18%; } /* Task Name */
+th:nth-child(3), td:nth-child(3) { width: 28%; } /* Description */
+th:nth-child(4), td:nth-child(4) { width: 15%; } /* Due Date */
+th:nth-child(5), td:nth-child(5) { width: 15%; } /* Status */
+th:nth-child(6), td:nth-child(6) { width: 15%; } /* Priority */
+
+th {
+    background-color: #173B30;  /* Dark green */
+    color: #C7ECC6;  /* Light green */
+    font-weight: 600;
+    font-size: 15px;
+}
+
+td {
+    background-color: #ffffff;
+    height: 50px;
+    color: #173B30;  /* Dark green text */
+}
+
+td:hover {
+    background-color: #C7ECC6;  /* Light green */
+}
+
+th:hover {
+    background-color: #1d4b3d;  /* Slightly lighter dark green for hover */
+    color: #C7ECC6;  /* Light green */
+}
+
+/* Contenteditable styles */
+[contenteditable="true"] {
+    min-height: 20px;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+[contenteditable="true"]:hover {
+    background-color: #C7ECC6;  /* Light green */
+    cursor: text;
+}
+
+[contenteditable="true"]:focus {
+    background-color: #fff;
+    outline: 2px solid #173B30;  /* Dark green */
+    outline-offset: -2px;
+    color: #173B30;  /* Dark green text */
+}
+
+/* Button styles */
+button {
+    display: block;
+    margin: 30px auto 0;
+    background-color: #173B30;  /* Dark green */
+    color: #C7ECC6;  /* Light green */
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-family: 'Sora', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #1d4b3d;  /* Slightly lighter dark green for hover */
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Header styles */
+header {
+    background-color: #173B30;  /* Dark green */
+    color: #C7ECC6;  /* Light green */
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 1rem 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #C7ECC6;  /* Light green */
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main content styles */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #173B30;  /* Dark green text */
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+/* Footer styles */
+footer {
+    background-color: #173B30;  /* Dark green */
+    color: #C7ECC6;  /* Light green */
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Date input styles */
+.date-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #173B30;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #173B30;
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.date-input:hover {
+    background-color: #C7ECC6;
+}
+
+.date-input:focus {
+    border-color: #173B30;
+    box-shadow: 0 0 0 2px rgba(23, 59, 48, 0.2);
+}
+
+/* Calendar icon color */
+.date-input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(20%) sepia(20%) saturate(900%) hue-rotate(115deg) brightness(35%);
+}
+
+/* Priority dropdown styles */
+.priority-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #173B30;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #173B30;
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.priority-select:hover {
+    background-color: #C7ECC6;
+}
+
+.priority-select:focus {
+    border-color: #173B30;
+    box-shadow: 0 0 0 2px rgba(23, 59, 48, 0.2);
+}
+
+/* Delete button styles */
+.delete-btn {
+    background-color: #E28046;  /* VYTA brand orange */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 0;
+    cursor: pointer;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #CB733F;  /* Slightly darker brand orange for hover */
+    transform: scale(1.1);
+} 

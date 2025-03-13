@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>My Project Tracker</h2>
+        <table id="taskTable">
+            <thead>
+                <tr>
+                    <th>Action</th>
+                    <th contenteditable="true">Task Name</th>
+                    <th contenteditable="true">Description</th>
+                    <th>Due Date</th>
+                    <th contenteditable="true">Status</th>
+                    <th>Priority</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <button class="delete-btn">-</button>
+                    </td>
+                    <td contenteditable="true">Example Task</td>
+                    <td contenteditable="true">Sample description</td>
+                    <td>
+                        <input type="date" class="date-input" value="2025-03-15">
+                    </td>
+                    <td contenteditable="true">In Progress</td>
+                    <td>
+                        <select class="priority-select">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high" selected>High</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button id="addRowBtn">+ Add Task</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
