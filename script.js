@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const newRow = document.createElement('tr');
         
         // Create cells
-        for (let i = 0; i < 7; i++) {  // Updated from 6 to 7 cells
+        for (let i = 0; i < 6; i++) {  // Updated from 7 to 6 cells (removed Priority)
             const td = document.createElement('td');
             if (i === 0) { // Action column (delete button)
                 td.innerHTML = `<button class="delete-btn">-</button>`;
@@ -36,15 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <option value="completed">Completed</option>
                     </select>
                 `;
-            } else if (i === 5) { // Priority column
-                td.innerHTML = `
-                    <select class="priority-select">
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                    </select>
-                `;
-            } else if (i === 6) { // Channel column
+            } else if (i === 5) { // Channel column (was i === 6)
                 td.innerHTML = `
                     <select class="channel-select">
                         <option value="meta">Meta</option>
@@ -91,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to save table data to localStorage
     function saveTableData() {
         const rows = Array.from(taskTable.querySelectorAll('tbody tr')).map(row => {
-            return Array.from(row.cells).slice(1, 8).map(cell => {  // Slice from index 1 to 8 (exclusive) to get 7 columns
+            return Array.from(row.cells).slice(1, 7).map(cell => {  // Updated from slice(1, 8) to slice(1, 7) to get 6 columns
                 // Check if the cell contains a select element
                 const select = cell.querySelector('select');
                 if (select) return select.value;
@@ -135,15 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <option value="completed" ${cellContent === 'completed' ? 'selected' : ''}>Completed</option>
                             </select>
                         `;
-                    } else if (index === 4) { // Priority column
-                        td.innerHTML = `
-                            <select class="priority-select">
-                                <option value="low" ${cellContent === 'low' ? 'selected' : ''}>Low</option>
-                                <option value="medium" ${cellContent === 'medium' ? 'selected' : ''}>Medium</option>
-                                <option value="high" ${cellContent === 'high' ? 'selected' : ''}>High</option>
-                            </select>
-                        `;
-                    } else if (index === 5) { // Channel column
+                    } else if (index === 4) { // Channel column (was index === 5)
                         td.innerHTML = `
                             <select class="channel-select">
                                 <option value="meta" ${cellContent === 'meta' ? 'selected' : ''}>Meta</option>

@@ -75,12 +75,11 @@ th, td {
 
 /* Set specific widths for each column */
 th:nth-child(1), td:nth-child(1) { width: 7%; } /* Action */
-th:nth-child(2), td:nth-child(2) { width: 13%; } /* Task */
-th:nth-child(3), td:nth-child(3) { width: 20%; } /* Notes */
-th:nth-child(4), td:nth-child(4) { width: 13%; } /* Due Date */
-th:nth-child(5), td:nth-child(5) { width: 13%; } /* Status */
-th:nth-child(6), td:nth-child(6) { width: 13%; } /* Priority */
-th:nth-child(7), td:nth-child(7) { width: 13%; } /* Channel */
+th:nth-child(2), td:nth-child(2) { width: 15%; } /* Task - increased width */
+th:nth-child(3), td:nth-child(3) { width: 25%; } /* Notes - increased width */
+th:nth-child(4), td:nth-child(4) { width: 15%; } /* Due Date - increased width */
+th:nth-child(5), td:nth-child(5) { width: 15%; } /* Status - increased width */
+th:nth-child(6), td:nth-child(6) { width: 15%; } /* Channel - increased width */
 
 th {
     background-color: #173B30;  /* Dark green */
@@ -234,8 +233,7 @@ footer {
     filter: invert(20%) sepia(20%) saturate(900%) hue-rotate(115deg) brightness(35%);
 }
 
-/* Priority dropdown and Status dropdown styles */
-.priority-select,
+/* Status and Channel dropdown styles */
 .status-select,
 .channel-select {
     width: 100%;
@@ -262,13 +260,11 @@ select option {
     font-family: 'Sora', sans-serif;
 }
 
-.priority-select:hover,
 .status-select:hover,
 .channel-select:hover {
     background-color: #C7ECC6;
 }
 
-.priority-select:focus,
 .status-select:focus,
 .channel-select:focus {
     border-color: #173B30;
