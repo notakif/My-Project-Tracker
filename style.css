@@ -75,10 +75,10 @@ th, td {
 }
 
 /* Set specific widths for each column */
-th:nth-child(1), td:nth-child(1) { width: 6%; } /* Action - slightly reduced */
-th:nth-child(2), td:nth-child(2) { width: 17%; } /* Task */
-th:nth-child(3), td:nth-child(3) { width: 21%; } /* Notes - increased width */
-th:nth-child(4), td:nth-child(4) { width: 13%; } /* Due Date - reduced to match Status */
+th:nth-child(1), td:nth-child(1) { width: 6%; } /* Action */
+th:nth-child(2), td:nth-child(2) { width: 21%; } /* Task - increased width */
+th:nth-child(3), td:nth-child(3) { width: 13%; } /* Notes */
+th:nth-child(4), td:nth-child(4) { width: 13%; } /* Due Date */
 th:nth-child(5), td:nth-child(5) { width: 13%; } /* Status */
 th:nth-child(6), td:nth-child(6) { width: 13%; } /* Priority */
 th:nth-child(7), td:nth-child(7) { width: 13%; } /* Channel */
@@ -118,6 +118,15 @@ th:hover {
     min-height: 20px;
     padding: 5px;
     border-radius: 4px;
+    overflow: auto;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+/* Specific styling for Notes column */
+td:nth-child(3) {
+    overflow: auto;
+    word-wrap: break-word;
 }
 
 [contenteditable="true"]:hover {
