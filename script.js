@@ -3,6 +3,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const taskTable = document.getElementById('taskTable');
     const addRowBtn = document.getElementById('addRowBtn');
 
+    // Helper function to format date for display
+    function formatDate(dateString) {
+        if (!dateString) return '';
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric' 
+        });
+    }
+
     // Function to handle row deletion
     function deleteRow(event) {
         if (event.target.classList.contains('delete-btn')) {
@@ -28,6 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (i === 3) { // Due Date column
                 const today = new Date().toISOString().split('T')[0];
                 td.innerHTML = `<input type="date" class="date-input" value="${today}">`;
+                td.setAttribute('data-date', formatDate(today));
+                
+                // Add event listener to update the data-date attribute when the date changes
+                td.querySelector('input[type="date"]').addEventListener('change', function() {
+                    td.setAttribute('data-date', formatDate(this.value));
+                });
             } else if (i === 4) { // Status column
                 td.innerHTML = `
                     <select class="status-select">
@@ -133,6 +150,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     const td = document.createElement('td');
                     if (index === 2) { // Due Date column
                         td.innerHTML = `<input type="date" class="date-input" value="${cellContent}">`;
+                        td.setAttribute('data-date', formatDate(cellContent));
+                        
+                        // Add event listener to update the data-date attribute when the date changes
+                        setTimeout(() => {
+                            const dateInput = td.querySelector('input[type="date"]');
+                            if (dateInput) {
+                                dateInput.addEventListener('change', function() {
+                                    td.setAttribute('data-date', formatDate(this.value));
+                                });
+                            }
+                        }, 0);
                     } else if (index === 3) { // Status column
                         td.innerHTML = `
                             <select class="status-select">
@@ -179,6 +207,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load saved data when the page loads
     loadTableData();
+
+    // Add event listener to open date picker when clicking anywhere in the Due Date cell
+    taskTable.addEventListener('click', function(event) {
+        const cell = event.target.closest('td');
+        if (cell) {
+            const cellIndex = Array.from(cell.parentNode.cells).indexOf(cell);
+            // Check if it's the Due Date column (index 3)
+            if (cellIndex === 3) {
+                const dateInput = cell.querySelector('input[type="date"]');
+                if (dateInput) {
+                    dateInput.focus();
+                    dateInput.click();
+                }
+            }
+        }
+    });
 
     // Add smooth scrolling to all links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
