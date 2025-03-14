@@ -71,12 +71,13 @@ th, td {
 }
 
 /* Set specific widths for each column */
-th:nth-child(1), td:nth-child(1) { width: 9%; } /* Action */
-th:nth-child(2), td:nth-child(2) { width: 18%; } /* Task Name */
-th:nth-child(3), td:nth-child(3) { width: 28%; } /* Description */
-th:nth-child(4), td:nth-child(4) { width: 15%; } /* Due Date */
-th:nth-child(5), td:nth-child(5) { width: 15%; } /* Status */
-th:nth-child(6), td:nth-child(6) { width: 15%; } /* Priority */
+th:nth-child(1), td:nth-child(1) { width: 8%; } /* Action */
+th:nth-child(2), td:nth-child(2) { width: 15%; } /* Task */
+th:nth-child(3), td:nth-child(3) { width: 22%; } /* Notes */
+th:nth-child(4), td:nth-child(4) { width: 13%; } /* Due Date */
+th:nth-child(5), td:nth-child(5) { width: 14%; } /* Status */
+th:nth-child(6), td:nth-child(6) { width: 14%; } /* Channel */
+th:nth-child(7), td:nth-child(7) { width: 14%; } /* Priority */
 
 th {
     background-color: #173B30;  /* Dark green */
@@ -224,7 +225,8 @@ footer {
 
 /* Priority dropdown and Status dropdown styles */
 .priority-select,
-.status-select {
+.status-select,
+.channel-select {
     width: 100%;
     padding: 8px;
     border: 1px solid #173B30;
@@ -240,12 +242,14 @@ footer {
 }
 
 .priority-select:hover,
-.status-select:hover {
+.status-select:hover,
+.channel-select:hover {
     background-color: #C7ECC6;
 }
 
 .priority-select:focus,
-.status-select:focus {
+.status-select:focus,
+.channel-select:focus {
     border-color: #173B30;
     box-shadow: 0 0 0 2px rgba(23, 59, 48, 0.2);
 }

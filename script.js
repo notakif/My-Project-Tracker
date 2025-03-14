@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const newRow = document.createElement('tr');
         
         // Create cells
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 7; i++) {  // Updated from 6 to 7 cells
             const td = document.createElement('td');
             if (i === 0) { // Action column (delete button)
                 td.innerHTML = `<button class="delete-btn">-</button>`;
@@ -36,7 +36,17 @@ document.addEventListener('DOMContentLoaded', function() {
                         <option value="completed">Completed</option>
                     </select>
                 `;
-            } else if (i === 5) { // Priority column
+            } else if (i === 5) { // Channel column
+                td.innerHTML = `
+                    <select class="channel-select">
+                        <option value="meta">Meta</option>
+                        <option value="website" selected>Website</option>
+                        <option value="programmatic">Programmatic</option>
+                        <option value="digital-ad">Digital Ad</option>
+                        <option value="print-ad">Print Ad</option>
+                    </select>
+                `;
+            } else if (i === 6) { // Priority column
                 td.innerHTML = `
                     <select class="priority-select">
                         <option value="low">Low</option>
@@ -81,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to save table data to localStorage
     function saveTableData() {
         const rows = Array.from(taskTable.querySelectorAll('tbody tr')).map(row => {
-            return Array.from(row.cells).slice(1, 6).map(cell => {
+            return Array.from(row.cells).slice(1, 7).map(cell => {  // Updated from 6 to 7
                 // Check if the cell contains a select element
                 const select = cell.querySelector('select');
                 if (select) return select.value;
@@ -125,7 +135,17 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <option value="completed" ${cellContent === 'completed' ? 'selected' : ''}>Completed</option>
                             </select>
                         `;
-                    } else if (index === 4) { // Priority column
+                    } else if (index === 4) { // Channel column
+                        td.innerHTML = `
+                            <select class="channel-select">
+                                <option value="meta" ${cellContent === 'meta' ? 'selected' : ''}>Meta</option>
+                                <option value="website" ${cellContent === 'website' ? 'selected' : ''}>Website</option>
+                                <option value="programmatic" ${cellContent === 'programmatic' ? 'selected' : ''}>Programmatic</option>
+                                <option value="digital-ad" ${cellContent === 'digital-ad' ? 'selected' : ''}>Digital Ad</option>
+                                <option value="print-ad" ${cellContent === 'print-ad' ? 'selected' : ''}>Print Ad</option>
+                            </select>
+                        `;
+                    } else if (index === 5) { // Priority column
                         td.innerHTML = `
                             <select class="priority-select">
                                 <option value="low" ${cellContent === 'low' ? 'selected' : ''}>Low</option>
