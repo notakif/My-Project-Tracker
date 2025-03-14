@@ -36,7 +36,15 @@ document.addEventListener('DOMContentLoaded', function() {
                         <option value="completed">Completed</option>
                     </select>
                 `;
-            } else if (i === 5) { // Channel column
+            } else if (i === 5) { // Priority column
+                td.innerHTML = `
+                    <select class="priority-select">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                `;
+            } else if (i === 6) { // Channel column
                 td.innerHTML = `
                     <select class="channel-select">
                         <option value="meta">Meta</option>
@@ -44,14 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <option value="programmatic">Programmatic</option>
                         <option value="digital-ad">Digital Ad</option>
                         <option value="print-ad">Print Ad</option>
-                    </select>
-                `;
-            } else if (i === 6) { // Priority column
-                td.innerHTML = `
-                    <select class="priority-select">
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
                     </select>
                 `;
             } else {
@@ -135,7 +135,15 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <option value="completed" ${cellContent === 'completed' ? 'selected' : ''}>Completed</option>
                             </select>
                         `;
-                    } else if (index === 4) { // Channel column
+                    } else if (index === 4) { // Priority column
+                        td.innerHTML = `
+                            <select class="priority-select">
+                                <option value="low" ${cellContent === 'low' ? 'selected' : ''}>Low</option>
+                                <option value="medium" ${cellContent === 'medium' ? 'selected' : ''}>Medium</option>
+                                <option value="high" ${cellContent === 'high' ? 'selected' : ''}>High</option>
+                            </select>
+                        `;
+                    } else if (index === 5) { // Channel column
                         td.innerHTML = `
                             <select class="channel-select">
                                 <option value="meta" ${cellContent === 'meta' ? 'selected' : ''}>Meta</option>
@@ -143,14 +151,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <option value="programmatic" ${cellContent === 'programmatic' ? 'selected' : ''}>Programmatic</option>
                                 <option value="digital-ad" ${cellContent === 'digital-ad' ? 'selected' : ''}>Digital Ad</option>
                                 <option value="print-ad" ${cellContent === 'print-ad' ? 'selected' : ''}>Print Ad</option>
-                            </select>
-                        `;
-                    } else if (index === 5) { // Priority column
-                        td.innerHTML = `
-                            <select class="priority-select">
-                                <option value="low" ${cellContent === 'low' ? 'selected' : ''}>Low</option>
-                                <option value="medium" ${cellContent === 'medium' ? 'selected' : ''}>Medium</option>
-                                <option value="high" ${cellContent === 'high' ? 'selected' : ''}>High</option>
                             </select>
                         `;
                     } else {

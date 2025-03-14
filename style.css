@@ -76,8 +76,8 @@ th:nth-child(2), td:nth-child(2) { width: 15%; } /* Task */
 th:nth-child(3), td:nth-child(3) { width: 22%; } /* Notes */
 th:nth-child(4), td:nth-child(4) { width: 13%; } /* Due Date */
 th:nth-child(5), td:nth-child(5) { width: 14%; } /* Status */
-th:nth-child(6), td:nth-child(6) { width: 14%; } /* Channel */
-th:nth-child(7), td:nth-child(7) { width: 14%; } /* Priority */
+th:nth-child(6), td:nth-child(6) { width: 14%; } /* Priority */
+th:nth-child(7), td:nth-child(7) { width: 14%; } /* Channel */
 
 th {
     background-color: #173B30;  /* Dark green */
