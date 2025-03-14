@@ -67,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 switch(i) {
                     case 1:
                         td.textContent = 'New Task';
-                        td.contentEditable = false;
                         break;
                     case 2:
                         td.textContent = 'Enter description';
