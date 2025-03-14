@@ -59,7 +59,15 @@ document.addEventListener('DOMContentLoaded', function() {
             newRow.appendChild(td);
         }
         
-        tbody.appendChild(newRow);
+        // Insert at the top of the table instead of appending to the bottom
+        if (tbody.firstChild) {
+            tbody.insertBefore(newRow, tbody.firstChild);
+        } else {
+            tbody.appendChild(newRow);
+        }
+        
+        // Save the updated table data
+        saveTableData();
     }
 
     // Add event listener to the Add Task button
@@ -95,7 +103,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const tbody = taskTable.querySelector('tbody');
             tbody.innerHTML = ''; // Clear existing rows
 
-            rows.forEach(rowData => {
+            // Process rows in reverse order to maintain consistency with new task insertion
+            [...rows].reverse().forEach(rowData => {
                 const newRow = document.createElement('tr');
                 // Add delete button as first column
                 const deleteCell = document.createElement('td');
