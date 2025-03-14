@@ -68,19 +68,19 @@ table {
 
 th, td {
     border: 1px solid #173B30;
-    padding: 15px;
+    padding: 10px;
     text-align: left;
-    min-width: 120px;  /* Reduced from 150px to fit all columns */
+    min-width: 100px;
 }
 
 /* Set specific widths for each column */
 th:nth-child(1), td:nth-child(1) { width: 7%; } /* Action */
-th:nth-child(2), td:nth-child(2) { width: 14%; } /* Task */
-th:nth-child(3), td:nth-child(3) { width: 14%; } /* Notes */
-th:nth-child(4), td:nth-child(4) { width: 14%; } /* Due Date */
-th:nth-child(5), td:nth-child(5) { width: 14%; } /* Status */
-th:nth-child(6), td:nth-child(6) { width: 14%; } /* Priority */
-th:nth-child(7), td:nth-child(7) { width: 14%; } /* Channel */
+th:nth-child(2), td:nth-child(2) { width: 18%; } /* Task - increased width */
+th:nth-child(3), td:nth-child(3) { width: 18%; } /* Notes - increased width */
+th:nth-child(4), td:nth-child(4) { width: 18%; } /* Due Date - increased width */
+th:nth-child(5), td:nth-child(5) { width: 12%; } /* Status - reduced width */
+th:nth-child(6), td:nth-child(6) { width: 12%; } /* Priority - reduced width */
+th:nth-child(7), td:nth-child(7) { width: 12%; } /* Channel - reduced width */
 
 th {
     background-color: #173B30;  /* Dark green */
@@ -252,6 +252,8 @@ footer {
     transition: all 0.3s ease;
     position: relative;
     z-index: 10;
+    text-overflow: ellipsis; /* Add ellipsis for text that might overflow */
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 /* Ensure dropdown options are visible */
@@ -260,6 +262,7 @@ select option {
     color: #173B30;
     padding: 10px;
     font-family: 'Sora', sans-serif;
+    white-space: normal; /* Allow text to wrap in dropdown options */
 }
 
 .status-select:hover,
