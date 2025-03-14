@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to save table data to localStorage
     function saveTableData() {
         const rows = Array.from(taskTable.querySelectorAll('tbody tr')).map(row => {
-            return Array.from(row.cells).slice(1, 7).map(cell => {  // Updated from 6 to 7
+            return Array.from(row.cells).slice(1, 7).map(cell => {  // Updated from 8 to 7 to match the actual number of data columns
                 // Check if the cell contains a select element
                 const select = cell.querySelector('select');
                 if (select) return select.value;
