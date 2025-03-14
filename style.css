@@ -76,8 +76,8 @@ th, td {
 
 /* Set specific widths for each column */
 th:nth-child(1), td:nth-child(1) { width: 6%; } /* Action */
-th:nth-child(2), td:nth-child(2) { width: 21%; } /* Task - increased width */
-th:nth-child(3), td:nth-child(3) { width: 13%; } /* Notes */
+th:nth-child(2), td:nth-child(2) { width: 13%; } /* Task - swapped with Notes */
+th:nth-child(3), td:nth-child(3) { width: 21%; } /* Notes - swapped with Task */
 th:nth-child(4), td:nth-child(4) { width: 13%; } /* Due Date */
 th:nth-child(5), td:nth-child(5) { width: 13%; } /* Status */
 th:nth-child(6), td:nth-child(6) { width: 13%; } /* Priority */
