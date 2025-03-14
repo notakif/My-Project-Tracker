@@ -33,7 +33,7 @@ body::before {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1300px;  /* Increased from 1200px to accommodate all columns */
     margin: 40px auto;
     background-color: rgba(255, 255, 255, 0.95);  /* Slightly transparent white */
     border-radius: 12px;
@@ -41,6 +41,7 @@ body::before {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     position: relative;
     backdrop-filter: blur(5px);
+    overflow-x: auto;  /* Add horizontal scrolling if needed */
 }
 
 h2 {
@@ -61,23 +62,24 @@ table {
     margin-top: 20px;
     font-size: 14px;
     background-color: #ffffff;
+    table-layout: fixed;  /* Fixed table layout for better column control */
 }
 
 th, td {
     border: 1px solid #173B30;
     padding: 15px;
     text-align: left;
-    min-width: 150px;
+    min-width: 120px;  /* Reduced from 150px to fit all columns */
 }
 
 /* Set specific widths for each column */
-th:nth-child(1), td:nth-child(1) { width: 8%; } /* Action */
-th:nth-child(2), td:nth-child(2) { width: 15%; } /* Task */
-th:nth-child(3), td:nth-child(3) { width: 22%; } /* Notes */
+th:nth-child(1), td:nth-child(1) { width: 7%; } /* Action */
+th:nth-child(2), td:nth-child(2) { width: 13%; } /* Task */
+th:nth-child(3), td:nth-child(3) { width: 20%; } /* Notes */
 th:nth-child(4), td:nth-child(4) { width: 13%; } /* Due Date */
-th:nth-child(5), td:nth-child(5) { width: 14%; } /* Status */
-th:nth-child(6), td:nth-child(6) { width: 14%; } /* Priority */
-th:nth-child(7), td:nth-child(7) { width: 14%; } /* Channel */
+th:nth-child(5), td:nth-child(5) { width: 13%; } /* Status */
+th:nth-child(6), td:nth-child(6) { width: 13%; } /* Priority */
+th:nth-child(7), td:nth-child(7) { width: 13%; } /* Channel */
 
 th {
     background-color: #173B30;  /* Dark green */
