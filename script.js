@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 switch(i) {
                     case 1:
                         td.textContent = 'New Task';
+                        td.contentEditable = false;
                         break;
                     case 2:
                         td.textContent = 'Enter description';
@@ -135,6 +136,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                         td.contentEditable = true;
                         td.textContent = cellContent;
+                        // Make Task column non-editable
+                        if (index === 0) { // Task column (index 0 in the data array, which is index 1 in the row)
+                            td.contentEditable = false;
+                        }
                     }
                     newRow.appendChild(td);
                 });
