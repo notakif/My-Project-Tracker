@@ -74,12 +74,12 @@ th, td {
 }
 
 /* Set specific widths for each column */
-th:nth-child(1), td:nth-child(1) { width: 7%; } /* Action */
-th:nth-child(2), td:nth-child(2) { width: 15%; } /* Task - increased width */
-th:nth-child(3), td:nth-child(3) { width: 25%; } /* Notes - increased width */
-th:nth-child(4), td:nth-child(4) { width: 15%; } /* Due Date - increased width */
-th:nth-child(5), td:nth-child(5) { width: 15%; } /* Status - increased width */
-th:nth-child(6), td:nth-child(6) { width: 15%; } /* Channel - increased width */
+th:nth-child(1), td:nth-child(1) { width: 8%; } /* Action - slightly increased */
+th:nth-child(2), td:nth-child(2) { width: 16%; } /* Task - slightly increased */
+th:nth-child(3), td:nth-child(3) { width: 16%; } /* Notes - matches Task column */
+th:nth-child(4), td:nth-child(4) { width: 20%; } /* Due Date - increased width */
+th:nth-child(5), td:nth-child(5) { width: 20%; } /* Status - increased width */
+th:nth-child(6), td:nth-child(6) { width: 20%; } /* Channel - increased width */
 
 th {
     background-color: #173B30;  /* Dark green */
