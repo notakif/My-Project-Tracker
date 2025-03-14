@@ -52,6 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         <option value="programmatic">Programmatic</option>
                         <option value="digital-ad">Digital Ad</option>
                         <option value="print-ad">Print Ad</option>
+                        <option value="email">Email</option>
+                        <option value="social-media">Social Media</option>
+                        <option value="sms">SMS</option>
+                        <option value="direct-mail">Direct Mail</option>
+                        <option value="tv">TV</option>
+                        <option value="radio">Radio</option>
+                        <option value="other">Other</option>
                     </select>
                 `;
             } else {
@@ -151,6 +158,13 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <option value="programmatic" ${cellContent === 'programmatic' ? 'selected' : ''}>Programmatic</option>
                                 <option value="digital-ad" ${cellContent === 'digital-ad' ? 'selected' : ''}>Digital Ad</option>
                                 <option value="print-ad" ${cellContent === 'print-ad' ? 'selected' : ''}>Print Ad</option>
+                                <option value="email" ${cellContent === 'email' ? 'selected' : ''}>Email</option>
+                                <option value="social-media" ${cellContent === 'social-media' ? 'selected' : ''}>Social Media</option>
+                                <option value="sms" ${cellContent === 'sms' ? 'selected' : ''}>SMS</option>
+                                <option value="direct-mail" ${cellContent === 'direct-mail' ? 'selected' : ''}>Direct Mail</option>
+                                <option value="tv" ${cellContent === 'tv' ? 'selected' : ''}>TV</option>
+                                <option value="radio" ${cellContent === 'radio' ? 'selected' : ''}>Radio</option>
+                                <option value="other" ${cellContent === 'other' ? 'selected' : ''}>Other</option>
                             </select>
                         `;
                     } else {

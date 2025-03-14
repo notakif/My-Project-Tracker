@@ -266,6 +266,15 @@ select option {
     white-space: normal; /* Allow text to wrap in dropdown options */
 }
 
+/* Ensure dropdown menus don't get cut off */
+.channel-select {
+    max-height: 38px; /* Match the height of other inputs */
+}
+
+.channel-select option {
+    max-width: 200px; /* Ensure dropdown width is sufficient for longer options */
+}
+
 .status-select:hover,
 .priority-select:hover,
 .channel-select:hover {
