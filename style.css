@@ -74,12 +74,13 @@ th, td {
 }
 
 /* Set specific widths for each column */
-th:nth-child(1), td:nth-child(1) { width: 8%; } /* Action - slightly increased */
-th:nth-child(2), td:nth-child(2) { width: 16%; } /* Task - slightly increased */
-th:nth-child(3), td:nth-child(3) { width: 16%; } /* Notes - matches Task column */
-th:nth-child(4), td:nth-child(4) { width: 20%; } /* Due Date - increased width */
-th:nth-child(5), td:nth-child(5) { width: 20%; } /* Status - increased width */
-th:nth-child(6), td:nth-child(6) { width: 20%; } /* Channel - increased width */
+th:nth-child(1), td:nth-child(1) { width: 7%; } /* Action */
+th:nth-child(2), td:nth-child(2) { width: 14%; } /* Task */
+th:nth-child(3), td:nth-child(3) { width: 14%; } /* Notes */
+th:nth-child(4), td:nth-child(4) { width: 14%; } /* Due Date */
+th:nth-child(5), td:nth-child(5) { width: 14%; } /* Status */
+th:nth-child(6), td:nth-child(6) { width: 14%; } /* Priority */
+th:nth-child(7), td:nth-child(7) { width: 14%; } /* Channel */
 
 th {
     background-color: #173B30;  /* Dark green */
@@ -233,8 +234,9 @@ footer {
     filter: invert(20%) sepia(20%) saturate(900%) hue-rotate(115deg) brightness(35%);
 }
 
-/* Status and Channel dropdown styles */
+/* Status, Priority, and Channel dropdown styles */
 .status-select,
+.priority-select,
 .channel-select {
     width: 100%;
     padding: 8px;
@@ -261,11 +263,13 @@ select option {
 }
 
 .status-select:hover,
+.priority-select:hover,
 .channel-select:hover {
     background-color: #C7ECC6;
 }
 
 .status-select:focus,
+.priority-select:focus,
 .channel-select:focus {
     border-color: #173B30;
     box-shadow: 0 0 0 2px rgba(23, 59, 48, 0.2);
