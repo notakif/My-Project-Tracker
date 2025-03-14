@@ -42,7 +42,7 @@ body::before {
     position: relative;
     backdrop-filter: blur(5px);
     overflow-x: auto;  /* Add horizontal scrolling if needed */
-    overflow-y: visible; /* Ensure dropdowns can extend beyond the container */
+    overflow-y: visible !important; /* Ensure dropdowns can extend beyond the container */
 }
 
 h2 {
@@ -64,6 +64,7 @@ table {
     font-size: 14px;
     background-color: #ffffff;
     table-layout: fixed;  /* Fixed table layout for better column control */
+    overflow: visible !important;
 }
 
 th, td {
@@ -99,7 +100,7 @@ td {
 
 /* Ensure the last column's dropdown is visible */
 td:last-child {
-    overflow: visible;
+    overflow: visible !important;
     position: relative;
 }
 
@@ -266,13 +267,28 @@ select option {
     white-space: normal; /* Allow text to wrap in dropdown options */
 }
 
-/* Ensure dropdown menus don't get cut off */
+/* Fix for Channel dropdown visibility */
 .channel-select {
     max-height: 38px; /* Match the height of other inputs */
+    position: relative;
 }
 
-.channel-select option {
-    max-width: 200px; /* Ensure dropdown width is sufficient for longer options */
+/* Force native dropdown appearance for better cross-browser compatibility */
+.channel-select {
+    -webkit-appearance: menulist !important;
+    -moz-appearance: menulist !important;
+    appearance: menulist !important;
+}
+
+/* Ensure the last column's dropdown is fully visible */
+td:last-child {
+    overflow: visible !important;
+    position: relative;
+}
+
+/* Increase z-index for the last column to ensure dropdown appears above other elements */
+td:last-child .channel-select {
+    z-index: 100 !important;
 }
 
 .status-select:hover,
