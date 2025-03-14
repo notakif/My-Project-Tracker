@@ -84,7 +84,7 @@ th:nth-child(6), td:nth-child(6) { width: 13%; } /* Priority */
 th:nth-child(7), td:nth-child(7) { width: 13%; } /* Channel */
 
 th {
-    background-color: #173B30;  /* Dark green */
+    background-color: #6A0DAD;  /* Purple - placeholder for brand purple */
     color: #C7ECC6;  /* Light green */
     font-weight: 600;
     font-size: 15px;
@@ -109,7 +109,7 @@ td:hover {
 }
 
 th:hover {
-    background-color: #1d4b3d;  /* Slightly lighter dark green for hover */
+    background-color: #5A0C93;  /* Slightly darker purple for hover */
     color: #C7ECC6;  /* Light green */
 }
 
