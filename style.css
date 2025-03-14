@@ -33,7 +33,7 @@ body::before {
 }
 
 .container {
-    max-width: 100%;  /* Changed from fixed width to 100% to ensure full visibility */
+    max-width: 1300px;  /* Increased from 1200px to accommodate all columns */
     margin: 40px auto;
     background-color: rgba(255, 255, 255, 0.95);  /* Slightly transparent white */
     border-radius: 12px;
@@ -41,7 +41,8 @@ body::before {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     position: relative;
     backdrop-filter: blur(5px);
-    overflow: visible;  /* Changed to ensure all content is visible */
+    overflow-x: auto;  /* Add horizontal scrolling if needed */
+    overflow-y: visible; /* Ensure dropdowns can extend beyond the container */
 }
 
 h2 {
@@ -58,37 +59,34 @@ h2 {
 /* Table styles */
 table {
     width: 100%;
-    border-collapse: separate;  /* Changed from collapse to separate for better dropdown handling */
-    border-spacing: 0;  /* Maintain the appearance of collapsed borders */
+    border-collapse: collapse;
     margin-top: 20px;
     font-size: 14px;
     background-color: #ffffff;
-    table-layout: auto;  /* Changed from fixed to auto for better content fitting */
+    table-layout: fixed;  /* Fixed table layout for better column control */
 }
 
 th, td {
     border: 1px solid #173B30;
     padding: 15px;
     text-align: left;
-    min-width: 100px;  /* Reduced minimum width */
-    position: relative;  /* Ensure proper positioning for all cells */
+    min-width: 120px;  /* Reduced from 150px to fit all columns */
 }
 
 /* Set specific widths for each column */
-th:nth-child(1), td:nth-child(1) { width: 5%; } /* Action - reduced width */
-th:nth-child(2), td:nth-child(2) { width: 12%; } /* Task */
-th:nth-child(3), td:nth-child(3) { width: 18%; } /* Notes */
-th:nth-child(4), td:nth-child(4) { width: 12%; } /* Due Date */
-th:nth-child(5), td:nth-child(5) { width: 12%; } /* Status */
-th:nth-child(6), td:nth-child(6) { width: 12%; } /* Priority */
-th:nth-child(7), td:nth-child(7) { width: 12%; } /* Channel */
+th:nth-child(1), td:nth-child(1) { width: 7%; } /* Action */
+th:nth-child(2), td:nth-child(2) { width: 13%; } /* Task */
+th:nth-child(3), td:nth-child(3) { width: 20%; } /* Notes */
+th:nth-child(4), td:nth-child(4) { width: 13%; } /* Due Date */
+th:nth-child(5), td:nth-child(5) { width: 13%; } /* Status */
+th:nth-child(6), td:nth-child(6) { width: 13%; } /* Priority */
+th:nth-child(7), td:nth-child(7) { width: 13%; } /* Channel */
 
 th {
     background-color: #173B30;  /* Dark green */
     color: #C7ECC6;  /* Light green */
     font-weight: 600;
     font-size: 15px;
-    position: relative;  /* Ensure proper positioning */
 }
 
 td {
@@ -96,28 +94,13 @@ td {
     height: 50px;
     color: #173B30;  /* Dark green text */
     position: relative;  /* Add position relative for proper dropdown positioning */
-    overflow: visible !important;  /* Force overflow visibility */
+    overflow: visible;   /* Ensure dropdowns can overflow the cell */
 }
 
-/* Ensure all dropdowns are visible */
-td select {
-    width: 100%;
+/* Ensure the last column's dropdown is visible */
+td:last-child {
+    overflow: visible;
     position: relative;
-    z-index: 100 !important;  /* Increased z-index to ensure visibility */
-}
-
-/* Ensure dropdown options are visible */
-select {
-    appearance: menulist !important;  /* Force native dropdown appearance */
-    -webkit-appearance: menulist !important;
-    -moz-appearance: menulist !important;
-}
-
-select option {
-    background-color: #ffffff;
-    color: #173B30;
-    padding: 10px;
-    font-family: 'Sora', sans-serif;
 }
 
 td:hover {
@@ -268,7 +251,15 @@ footer {
     outline: none;
     transition: all 0.3s ease;
     position: relative;
-    z-index: 100 !important;  /* Increased z-index */
+    z-index: 10;
+}
+
+/* Ensure dropdown options are visible */
+select option {
+    background-color: #ffffff;
+    color: #173B30;
+    padding: 10px;
+    font-family: 'Sora', sans-serif;
 }
 
 .priority-select:hover,
@@ -307,17 +298,4 @@ footer {
 .delete-btn:hover {
     background-color: #CB733F;  /* Slightly darker brand orange for hover */
     transform: scale(1.1);
-}
-
-/* Media query for smaller screens */
-@media screen and (max-width: 1200px) {
-    .container {
-        padding: 20px 10px;
-        margin: 20px 10px;
-    }
-    
-    th, td {
-        padding: 10px 5px;
-        font-size: 13px;
-    }
 } 
