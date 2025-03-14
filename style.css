@@ -42,6 +42,7 @@ body::before {
     position: relative;
     backdrop-filter: blur(5px);
     overflow-x: auto;  /* Add horizontal scrolling if needed */
+    overflow-y: visible; /* Ensure dropdowns can extend beyond the container */
 }
 
 h2 {
@@ -92,6 +93,14 @@ td {
     background-color: #ffffff;
     height: 50px;
     color: #173B30;  /* Dark green text */
+    position: relative;  /* Add position relative for proper dropdown positioning */
+    overflow: visible;   /* Ensure dropdowns can overflow the cell */
+}
+
+/* Ensure the last column's dropdown is visible */
+td:last-child {
+    overflow: visible;
+    position: relative;
 }
 
 td:hover {
@@ -241,6 +250,16 @@ footer {
     cursor: pointer;
     outline: none;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+/* Ensure dropdown options are visible */
+select option {
+    background-color: #ffffff;
+    color: #173B30;
+    padding: 10px;
+    font-family: 'Sora', sans-serif;
 }
 
 .priority-select:hover,
