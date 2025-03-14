@@ -169,10 +169,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                         td.contentEditable = true;
                         td.textContent = cellContent;
-                        // Make Task column non-editable
-                        if (index === 0) { // Task column (index 0 in the data array, which is index 1 in the row)
-                            td.contentEditable = false;
-                        }
                     }
                     newRow.appendChild(td);
                 });
