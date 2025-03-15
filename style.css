@@ -84,8 +84,8 @@ th:nth-child(6), td:nth-child(6) { width: 13%; } /* Priority */
 th:nth-child(7), td:nth-child(7) { width: 13%; } /* Channel */
 
 th {
-    background-color: #6A0DAD;  /* Purple - placeholder for brand purple */
-    color: #C7ECC6;  /* Light green */
+    background-color: #ACA5C4;  /* Brand purple */
+    color: #173B30;  /* Dark green text for better contrast with lighter purple */
     font-weight: 600;
     font-size: 15px;
 }
@@ -109,8 +109,8 @@ td:hover {
 }
 
 th:hover {
-    background-color: #5A0C93;  /* Slightly darker purple for hover */
-    color: #C7ECC6;  /* Light green */
+    background-color: #9C95B4;  /* Slightly darker brand purple for hover */
+    color: #173B30;  /* Dark green text */
 }
 
 /* Contenteditable styles */
