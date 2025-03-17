@@ -121,6 +121,25 @@ th:hover {
     overflow: auto;
     text-overflow: ellipsis;
     word-wrap: break-word;
+    cursor: text;
+    transition: all 0.2s ease;
+}
+
+[contenteditable="true"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px dashed transparent;
+    border-radius: 4px;
+    pointer-events: none;
+    transition: border-color 0.2s ease;
+}
+
+[contenteditable="true"]:hover::before {
+    border-color: #173B30;
 }
 
 /* Specific styling for Notes column */

@@ -94,6 +94,20 @@ document.addEventListener('DOMContentLoaded', function() {
     taskTable.addEventListener('input', saveTableData);
     taskTable.addEventListener('change', saveTableData); // For dropdown changes
 
+    // Add event listener to select all text in contenteditable cells when clicked
+    taskTable.addEventListener('click', function(event) {
+        const target = event.target;
+        // Check if the clicked element is a contenteditable cell
+        if (target.matches('td[contenteditable="true"]')) {
+            // Select all text in the cell
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(target);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+    });
+
     // Function to save table data to localStorage
     function saveTableData() {
         const rows = Array.from(taskTable.querySelectorAll('tbody tr')).map(row => {
