@@ -29,13 +29,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 const today = new Date().toISOString().split('T')[0];
                 td.innerHTML = `<input type="date" class="date-input" value="${today}">`;
             } else if (i === 4) { // Status column
-                td.innerHTML = `
+                const selectHTML = `
                     <select class="status-select">
                         <option value="in-progress">In Progress</option>
                         <option value="pending" selected>Pending</option>
                         <option value="completed">Completed</option>
                     </select>
                 `;
+                td.innerHTML = selectHTML;
+                
+                // Add the completed class if needed
+                const select = td.querySelector('.status-select');
+                if (select.value === 'completed') {
+                    select.classList.add('status-completed');
+                }
             } else if (i === 5) { // Priority column
                 td.innerHTML = `
                     <select class="priority-select">
@@ -88,7 +95,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Save data to localStorage when changes are made
     taskTable.addEventListener('input', saveTableData);
-    taskTable.addEventListener('change', saveTableData); // For dropdown changes
+    taskTable.addEventListener('change', function(event) {
+        // Check if it's a status dropdown being changed
+        if (event.target.classList.contains('status-select')) {
+            const select = event.target;
+            // Apply or remove the completed class depending on the selected value
+            if (select.value === 'completed') {
+                select.classList.add('status-completed');
+            } else {
+                select.classList.remove('status-completed');
+            }
+        }
+        
+        // Save the data
+        saveTableData();
+    }); // For dropdown changes
 
     // Add event listener to select all text in contenteditable cells when clicked
     taskTable.addEventListener('click', function(event) {
@@ -145,13 +166,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (index === 2) { // Due Date column
                         td.innerHTML = `<input type="date" class="date-input" value="${cellContent}">`;
                     } else if (index === 3) { // Status column
-                        td.innerHTML = `
+                        const selectHTML = `
                             <select class="status-select">
                                 <option value="in-progress" ${cellContent === 'in-progress' ? 'selected' : ''}>In Progress</option>
                                 <option value="pending" ${cellContent === 'pending' ? 'selected' : ''}>Pending</option>
                                 <option value="completed" ${cellContent === 'completed' ? 'selected' : ''}>Completed</option>
                             </select>
                         `;
+                        td.innerHTML = selectHTML;
+                        
+                        // Add the completed class if needed
+                        const select = td.querySelector('.status-select');
+                        if (cellContent === 'completed') {
+                            select.classList.add('status-completed');
+                        }
                     } else if (index === 4) { // Priority column
                         td.innerHTML = `
                             <select class="priority-select">
@@ -257,13 +285,21 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add status cell
             const statusCell = document.createElement('td');
-            statusCell.innerHTML = `
+            const statusHTML = `
                 <select class="status-select">
                     <option value="in-progress" ${task.status === 'in-progress' ? 'selected' : ''}>In Progress</option>
                     <option value="pending" ${task.status === 'pending' ? 'selected' : ''}>Pending</option>
                     <option value="completed" ${task.status === 'completed' ? 'selected' : ''}>Completed</option>
                 </select>
             `;
+            statusCell.innerHTML = statusHTML;
+            
+            // Add the completed class if needed
+            const statusSelect = statusCell.querySelector('.status-select');
+            if (task.status === 'completed') {
+                statusSelect.classList.add('status-completed');
+            }
+            
             newRow.appendChild(statusCell);
             
             // Add priority cell

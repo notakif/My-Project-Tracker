@@ -418,4 +418,17 @@ td:last-child .channel-select {
         height: 20px;
         font-size: 16px;
     }
+}
+
+/* Status dropdown styling for completed tasks */
+.status-select option[value="completed"] {
+    background-color: #C7ECC6;  /* Brand light green */
+    color: #173B30;  /* Brand dark green */
+    font-weight: 600;
+}
+
+.status-completed {
+    background-color: #C7ECC6 !important;  /* Brand light green */
+    color: #173B30 !important;  /* Brand dark green */
+    font-weight: 600;
 } 
