@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create 4 default rows with example tasks
         const defaultTasks = [
             {
-                task: "Team Meeting",
+                task: "New Task",
                 notes: "Discuss project timeline and objectives",
                 dueDate: getFutureDate(7), // 1 week from now
                 status: "pending",
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 channel: "website"
             },
             {
-                task: "Create Content Calendar",
+                task: "New Task",
                 notes: "Plan social media posts for next month",
                 dueDate: getFutureDate(14), // 2 weeks from now
                 status: "in-progress",
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 channel: "social-media"
             },
             {
-                task: "Client Presentation",
+                task: "New Task",
                 notes: "Prepare slides for quarterly review",
                 dueDate: getFutureDate(3), // 3 days from now
                 status: "in-progress",
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 channel: "email"
             },
             {
-                task: "Website Updates",
+                task: "New Task",
                 notes: "Update product information and images",
                 dueDate: getFutureDate(10), // 10 days from now
                 status: "pending",
