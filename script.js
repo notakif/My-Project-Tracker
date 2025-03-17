@@ -54,10 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <option value="print-ad">Print Ad</option>
                         <option value="email">Email</option>
                         <option value="social-media">Social Media</option>
-                        <option value="sms">SMS</option>
-                        <option value="direct-mail">Direct Mail</option>
-                        <option value="tv">TV</option>
-                        <option value="radio">Radio</option>
                         <option value="other">Other</option>
                     </select>
                 `;
@@ -174,10 +170,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <option value="print-ad" ${cellContent === 'print-ad' ? 'selected' : ''}>Print Ad</option>
                                 <option value="email" ${cellContent === 'email' ? 'selected' : ''}>Email</option>
                                 <option value="social-media" ${cellContent === 'social-media' ? 'selected' : ''}>Social Media</option>
-                                <option value="sms" ${cellContent === 'sms' ? 'selected' : ''}>SMS</option>
-                                <option value="direct-mail" ${cellContent === 'direct-mail' ? 'selected' : ''}>Direct Mail</option>
-                                <option value="tv" ${cellContent === 'tv' ? 'selected' : ''}>TV</option>
-                                <option value="radio" ${cellContent === 'radio' ? 'selected' : ''}>Radio</option>
                                 <option value="other" ${cellContent === 'other' ? 'selected' : ''}>Other</option>
                             </select>
                         `;
@@ -296,10 +288,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <option value="print-ad" ${task.channel === 'print-ad' ? 'selected' : ''}>Print Ad</option>
                     <option value="email" ${task.channel === 'email' ? 'selected' : ''}>Email</option>
                     <option value="social-media" ${task.channel === 'social-media' ? 'selected' : ''}>Social Media</option>
-                    <option value="sms" ${task.channel === 'sms' ? 'selected' : ''}>SMS</option>
-                    <option value="direct-mail" ${task.channel === 'direct-mail' ? 'selected' : ''}>Direct Mail</option>
-                    <option value="tv" ${task.channel === 'tv' ? 'selected' : ''}>TV</option>
-                    <option value="radio" ${task.channel === 'radio' ? 'selected' : ''}>Radio</option>
                     <option value="other" ${task.channel === 'other' ? 'selected' : ''}>Other</option>
                 </select>
             `;
