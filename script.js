@@ -115,11 +115,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to load table data from localStorage
     function loadTableData() {
         const savedData = localStorage.getItem('taskData');
+        const tbody = taskTable.querySelector('tbody');
+        tbody.innerHTML = ''; // Clear existing rows
+        
         if (savedData) {
             const rows = JSON.parse(savedData);
-            const tbody = taskTable.querySelector('tbody');
-            tbody.innerHTML = ''; // Clear existing rows
-
+            
             // Process rows in reverse order to maintain consistency with new task insertion
             [...rows].reverse().forEach(rowData => {
                 const newRow = document.createElement('tr');
@@ -174,11 +175,155 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 tbody.appendChild(newRow);
             });
+        } else {
+            // Create 4 default rows if no data exists
+            createDefaultRows();
         }
+    }
+    
+    // Function to create 4 default tasks
+    function createDefaultRows() {
+        // Clear the table first
+        const tbody = taskTable.querySelector('tbody');
+        tbody.innerHTML = '';
+        
+        // Create 4 default rows with example tasks
+        const defaultTasks = [
+            {
+                task: "Team Meeting",
+                notes: "Discuss project timeline and objectives",
+                dueDate: getFutureDate(7), // 1 week from now
+                status: "pending",
+                priority: "high",
+                channel: "website"
+            },
+            {
+                task: "Create Content Calendar",
+                notes: "Plan social media posts for next month",
+                dueDate: getFutureDate(14), // 2 weeks from now
+                status: "in-progress",
+                priority: "medium",
+                channel: "social-media"
+            },
+            {
+                task: "Client Presentation",
+                notes: "Prepare slides for quarterly review",
+                dueDate: getFutureDate(3), // 3 days from now
+                status: "in-progress",
+                priority: "high",
+                channel: "email"
+            },
+            {
+                task: "Website Updates",
+                notes: "Update product information and images",
+                dueDate: getFutureDate(10), // 10 days from now
+                status: "pending",
+                priority: "medium",
+                channel: "website"
+            }
+        ];
+        
+        // Add the default rows to the table
+        defaultTasks.forEach(task => {
+            const newRow = document.createElement('tr');
+            
+            // Add delete button cell
+            const deleteCell = document.createElement('td');
+            deleteCell.innerHTML = `<button class="delete-btn">-</button>`;
+            newRow.appendChild(deleteCell);
+            
+            // Add task cell
+            const taskCell = document.createElement('td');
+            taskCell.contentEditable = true;
+            taskCell.textContent = task.task;
+            newRow.appendChild(taskCell);
+            
+            // Add notes cell
+            const notesCell = document.createElement('td');
+            notesCell.contentEditable = true;
+            notesCell.textContent = task.notes;
+            newRow.appendChild(notesCell);
+            
+            // Add due date cell
+            const dueDateCell = document.createElement('td');
+            dueDateCell.innerHTML = `<input type="date" class="date-input" value="${task.dueDate}">`;
+            newRow.appendChild(dueDateCell);
+            
+            // Add status cell
+            const statusCell = document.createElement('td');
+            statusCell.innerHTML = `
+                <select class="status-select">
+                    <option value="in-progress" ${task.status === 'in-progress' ? 'selected' : ''}>In Progress</option>
+                    <option value="pending" ${task.status === 'pending' ? 'selected' : ''}>Pending</option>
+                    <option value="completed" ${task.status === 'completed' ? 'selected' : ''}>Completed</option>
+                </select>
+            `;
+            newRow.appendChild(statusCell);
+            
+            // Add priority cell
+            const priorityCell = document.createElement('td');
+            priorityCell.innerHTML = `
+                <select class="priority-select">
+                    <option value="low" ${task.priority === 'low' ? 'selected' : ''}>Low</option>
+                    <option value="medium" ${task.priority === 'medium' ? 'selected' : ''}>Medium</option>
+                    <option value="high" ${task.priority === 'high' ? 'selected' : ''}>High</option>
+                </select>
+            `;
+            newRow.appendChild(priorityCell);
+            
+            // Add channel cell
+            const channelCell = document.createElement('td');
+            channelCell.innerHTML = `
+                <select class="channel-select">
+                    <option value="meta" ${task.channel === 'meta' ? 'selected' : ''}>Meta</option>
+                    <option value="website" ${task.channel === 'website' ? 'selected' : ''}>Website</option>
+                    <option value="programmatic" ${task.channel === 'programmatic' ? 'selected' : ''}>Programmatic</option>
+                    <option value="digital-ad" ${task.channel === 'digital-ad' ? 'selected' : ''}>Digital Ad</option>
+                    <option value="print-ad" ${task.channel === 'print-ad' ? 'selected' : ''}>Print Ad</option>
+                    <option value="email" ${task.channel === 'email' ? 'selected' : ''}>Email</option>
+                    <option value="social-media" ${task.channel === 'social-media' ? 'selected' : ''}>Social Media</option>
+                    <option value="sms" ${task.channel === 'sms' ? 'selected' : ''}>SMS</option>
+                    <option value="direct-mail" ${task.channel === 'direct-mail' ? 'selected' : ''}>Direct Mail</option>
+                    <option value="tv" ${task.channel === 'tv' ? 'selected' : ''}>TV</option>
+                    <option value="radio" ${task.channel === 'radio' ? 'selected' : ''}>Radio</option>
+                    <option value="other" ${task.channel === 'other' ? 'selected' : ''}>Other</option>
+                </select>
+            `;
+            newRow.appendChild(channelCell);
+            
+            // Add the row to the table
+            tbody.appendChild(newRow);
+        });
+        
+        // Save the default tasks to localStorage
+        saveTableData();
+    }
+    
+    // Helper function to get a date in the future
+    function getFutureDate(daysFromNow) {
+        const date = new Date();
+        date.setDate(date.getDate() + daysFromNow);
+        return date.toISOString().split('T')[0]; // Format as YYYY-MM-DD
     }
 
     // Load saved data when the page loads
     loadTableData();
+    
+    // Ensure we always have at least 4 rows
+    ensureMinimumRows(4);
+    
+    // Function to ensure a minimum number of rows
+    function ensureMinimumRows(minRows) {
+        const tbody = taskTable.querySelector('tbody');
+        const currentRowCount = tbody.children.length;
+        
+        // If we have fewer than minRows, add more rows
+        if (currentRowCount < minRows) {
+            for (let i = 0; i < minRows - currentRowCount; i++) {
+                createNewRow();
+            }
+        }
+    }
 
     // Add smooth scrolling to all links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
