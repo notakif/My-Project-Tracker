@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 task: "New Task",
                 notes: "Discuss project timeline and objectives",
                 dueDate: getFutureDate(7), // 1 week from now
-                status: "pending",
+                status: "completed",
                 priority: "high",
                 channel: "website"
             },
@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 task: "New Task",
                 notes: "Prepare slides for quarterly review",
                 dueDate: getFutureDate(3), // 3 days from now
-                status: "in-progress",
+                status: "completed",
                 priority: "high",
                 channel: "email"
             },
